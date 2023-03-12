@@ -13,6 +13,7 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
-});
+$router->get('/','CalculatorController@index');
+$router->post('/calculate',[
+    'as' => 'calculate', 'uses' => 'CalculatorController@calculate'
+]);
