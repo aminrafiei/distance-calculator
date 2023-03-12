@@ -16,7 +16,7 @@
                 <div class="form-group">
                     <label for="distance1">Distance 1:</label>
                     <div class="input-group">
-                        <input type="number" class="form-control" name="distance1" required>
+                        <input type="number" step="0.01" class="form-control" name="distance1" required>
                         <select class="form-control" name="unit1">
                             @foreach(\App\Enums\Units::AVAILABLE_UNITS as $unit)
                                 <option value="{{$unit}}">{{$unit}}</option>
@@ -27,7 +27,7 @@
                 <div class="form-group">
                     <label for="distance2">Distance 2:</label>
                     <div class="input-group">
-                        <input type="number" class="form-control" name="distance2" required>
+                        <input type="number" step="0.01" class="form-control" name="distance2" required>
                         <select class="form-control" name="unit2">
                             @foreach(\App\Enums\Units::AVAILABLE_UNITS as $unit)
                                 <option value="{{$unit}}">{{$unit}}</option>
@@ -46,6 +46,7 @@
                 <button type="submit" class="btn btn-primary btn-block">Calculate</button>
             </form>
             @if(isset($result))
+                <hr>
                 <div class="my-4">
                     <h4>Result:</h4>
                     <p>{{ $result }}</p>
