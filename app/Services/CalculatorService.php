@@ -9,7 +9,7 @@ class CalculatorService
 {
     const METER_CONVERSION_RATE = [
         Units::METER => 1,
-        Units::YARD => 1.094,
+        Units::YARD => 0.9144,
     ];
 
     const SUM = 'sum';
@@ -56,7 +56,7 @@ class CalculatorService
             throw new Exception('Invalid unit');
         }
 
-        return $distance / self::METER_CONVERSION_RATE[$unit];
+        return $distance * self::METER_CONVERSION_RATE[$unit];
     }
 
     /**
@@ -71,6 +71,6 @@ class CalculatorService
             throw new Exception('Invalid unit');
         }
 
-        return $distance * self::METER_CONVERSION_RATE[$unit];
+        return $distance / self::METER_CONVERSION_RATE[$unit];
     }
 }
