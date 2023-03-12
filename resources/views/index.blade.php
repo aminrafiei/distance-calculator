@@ -17,9 +17,10 @@
                     <label for="distance1">Distance 1:</label>
                     <div class="input-group">
                         <input type="number" class="form-control" name="distance1" required>
-                        <select class="form-control" name="unit1" id="unit1">
-                            <option value="meters">Meters</option>
-                            <option value="yards">Yards</option>
+                        <select class="form-control" name="unit1">
+                            @foreach(\App\Enums\Units::AVAILABLE_UNITS as $unit)
+                                <option value="{{$unit}}">{{$unit}}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
@@ -27,17 +28,19 @@
                     <label for="distance2">Distance 2:</label>
                     <div class="input-group">
                         <input type="number" class="form-control" name="distance2" required>
-                        <select class="form-control" name="unit1" id="unit1">
-                            <option value="meters">Meters</option>
-                            <option value="yards">Yards</option>
+                        <select class="form-control" name="unit2">
+                            @foreach(\App\Enums\Units::AVAILABLE_UNITS as $unit)
+                                <option value="{{$unit}}">{{$unit}}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="requestedUnit">Result Unit:</label>
                     <select class="form-control" name="result_unit" required>
-                        <option value="meters">Meters</option>
-                        <option value="yards">Yards</option>
+                        @foreach(\App\Enums\Units::AVAILABLE_UNITS as $unit)
+                            <option value="{{$unit}}">{{$unit}}</option>
+                        @endforeach
                     </select>
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">Calculate</button>
